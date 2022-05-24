@@ -1,0 +1,12 @@
+name = "TLPM"
+uuid = "36b6ff1f-e5b3-4418-bcdb-c9d568a95e2d"
+authors = ["Michael Lackner <lacknersmichael@gmail.com> and contributors"]
+version = "0.0.1"
+
+[deps]
+BitFlags = "d1d4a3ce-64b1-5f1a-9ba4-7e7e69966f35"
+CBinding = "d43a6710-96b8-4a2d-833c-c424785e5374"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[test]
+packages = ["Test"]
