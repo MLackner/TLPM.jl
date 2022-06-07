@@ -1,13 +1,12 @@
 push!(LOAD_PATH, joinpath(@__DIR__, ".."))
 
-@show LOAD_PATH
-
 using Documenter
+using DocumenterMarkdown
 using TLPM
 
 makedocs(
     sitename = "TLPM",
-    format = Documenter.HTML(),
+    format = DocumenterMarkdown.Markdown(),
     modules = [TLPM],
     pages = [
         "Installation" => "installation.md",
@@ -26,9 +25,17 @@ makedocs(
     ]
 )
 
+@info "Deploying documentation with MkDocs"
+cd(@__DIR__)
+run(`python -m mkdocs build`)
+run(`python -m mkdocs gh-deploy`)
+
 # Documenter can also automatically deploy documentation to gh-pages.
 # See "Hosting Documentation" and deploydocs() in the Documenter manual
 # for more information.
-deploydocs(
-    repo = "github.com/MLackner/TLPM.jl.git"
-)
+# deploydocs(
+#     repo = "github.com/MLackner/TLPM.jl.git",
+#     deps = Deps.pip("mkdocs", "pygments", "python-markdown-math"),
+#     make = () -> run(`mkdocs build`),
+#     target = "site"
+# )
