@@ -62,6 +62,19 @@ export reinit_sensor,
        get_power_calibration_points_information
 
 
+"""
+    TLPMDevice(resource_name::String) -> TLPMDevice
+
+Create a new `TLPMDevice` containing the instrument handle and the resource
+name.
+
+## Arguments
+- `resource_name::String`: the resource name of the device returned by
+  `get_resource_name`
+
+## Returns
+- `TLPMDevice`: a `struct` representing the device
+"""
 mutable struct TLPMDevice
     instr_handle::UInt32
     resource_name::String
@@ -163,8 +176,12 @@ end
 """
     find_resources() -> UInt32
 
-Returns the number of devices.
-"""
+This function finds all driver compatible devices attached to the PC and returns
+the number of found devices. The function additionally stores information like
+system name about the found resources internally. This information can be
+retrieved with further functions from the class, e.g. `get_resource_name`
+and `get_resource_info`.
+ """
 function find_resources()
     device_count = Ref{UInt32}(0)
     TLPM_findRsrc(0, device_count) |> _handle_error
@@ -174,8 +191,9 @@ end
 """
     get_resource_name(device_index::T) where T <: Unsigned -> String
 
-Get the resource name of device with index `device_index`. You have to first
-call `find_resources()` otherwise you get a `ReadOnlyMemoryError`.
+Get the resource name of device with index `device_index` which is needed to
+open a device with `TLPMDevice`. You have to first call `find_resources()`
+otherwise you get a `ReadOnlyMemoryError`.
 
 ## Example
 
@@ -230,11 +248,49 @@ function init(resource_name; query=true, reset=true)
     instr_handle[]
 end
 
+"""
+    connect!(x::TLPMDevice; query=true, reset=true) -> TLPMDevice
+
+Make a connection to the `TLPMDevice` `x`.
+
+
+## Keyword Arguments
+
+- `query=true`: This parameter specifies whether an identification query is performed during the initialization process.
+- `reset=true`: This parameter specifies whether the instrument is reset during the initialization process.
+"""
 function connect!(x::TLPMDevice; query=true, reset=true)
     x.instr_handle = init(x.resource_name; query=query, reset=reset)
     x
 end
 
+"""
+    open(f::Function, x::TLPMDevice; query=true, reset=true) -> Nothing
+
+Opens a connection to the `TLPM` device, executes function `f` and finally disconnects from the device.
+
+## Keyword Arguments
+
+- `query=true`: This parameter specifies whether an identification query is performed during the initialization process.
+- `reset=true`: This parameter specifies whether the instrument is reset during the initialization process.
+
+## Example
+
+```
+julia> find_resources()
+
+julia> resource_name = get_resource_name(0x00)
+"USB0::0x1313::0x8072::1918020::INSTR"
+
+julia> dev = TLPMDevice(resource_name)
+TLPMDevice(0x00000000, "USB0::0x1313::0x8072::1918020::INSTR")
+
+julia> open(dev) do x
+           measure_power(x) |> println
+       end
+4.54033199e-7
+```
+"""
 function open(f::Function, x::TLPMDevice; query=true, reset=true)
     connect!(x; query=query, reset=reset)
     try
@@ -246,12 +302,25 @@ end
 
 close(instr_handle) = TLPM_close(instr_handle) |> _handle_error
 
+"""
+    disconnect(x::TLPMDevice) -> Nothing
+
+Disconnect the `TLPMDevice`.
+"""
 disconnect(x::TLPMDevice) = close(x.instr_handle)
 
 ###############################################################################
 # MEASURE 
 ###############################################################################
 
+"""
+    measure_power(x::TLPMDevice) -> Float64
+
+Obtain a power reading from the instrument. This function starts a new
+measurement cycle and after finishing measurement the result is received.
+Subject to the actual Average Time this may take up to seconds. Refer to
+`set_avg_time` and `get_avg_time`.
+"""
 function measure_power(instr_handle)
     power = Ref{Float64}()
     TLPM_measPower(instr_handle, power) |> _handle_error
@@ -298,21 +367,29 @@ function _get_avg_time(instr_handle::UInt32, attribute::Int16)
 end
 
 """
+    get_avg_time(x::TLPMDevice) -> Float64
+
 Return the average time for measurement value generation.
 """
 get_avg_time(x::TLPMDevice) = _get_avg_time(x.instr_handle, Int16(0))
 
 """
+    get_minimum_avg_time(x::TLPMDevice) -> Float64
+
 Return the minimum average time for measurement value generation that can be set.
 """
 get_minimum_avg_time(x::TLPMDevice) = _get_avg_time(x.instr_handle, Int16(1))
 
 """
+    get_maximum_avg_time(x::TLPMDevice) -> Float64
+
 Return the maximum average time for measurement value generation that can be set.
 """
 get_maximum_avg_time(x::TLPMDevice) = _get_avg_time(x.instr_handle, Int16(2))
 
 """
+    get_default_avg_time(x::TLPMDevice) -> Float64
+
 Return the default average time for measurement value generation that can be set.
 """
 get_default_avg_time(x::TLPMDevice) = _get_avg_time(x.instr_handle, Int16(3))
@@ -326,6 +403,8 @@ get_default_avg_time(x::TLPMDevice) = _get_avg_time(x.instr_handle, Int16(3))
 ######
 
 """
+    set_wavelength(x::TLPMDevice, wavelength::Float64) -> Nothing
+
 This function sets the users wavelength in nanometer [nm]. The wavelength set
 value is used for calculating power.
 """
@@ -348,19 +427,23 @@ function _get_wavelength(instr_handle, attribute::Int16)
 end
 
 """
+    get_wavelength(x::TLPMDevice) -> Float64
+
 This function returns the users wavelength in nanometer [nm]. The wavelength set
 value is used for calculating power.
 """
 get_wavelength(x::TLPMDevice) = _get_wavelength(x.instr_handle, Int16(0))
 
 """
+    get_minimum_wavelength(x::TLPMDevice) -> Float64
+
 This function returns the minimum wavelength in nanometer [nm] that can be set
 by the user. The wavelength set value is used for calculating power.
 """
 get_minimum_wavelength(x::TLPMDevice) = _get_wavelength(x.instr_handle, Int16(1))
 
 """
-    get_maximum_wavelength(x::TLPMDevice)
+    get_maximum_wavelength(x::TLPMDevice) -> Float64
 
 This function returns the maximum wavelength in nanometer [nm] that can be set
 by the user. The wavelength set value is used for calculating power.
@@ -382,7 +465,7 @@ function get_dark_offset(x::TLPMDevice)
 end
 
 """
-    start_dark_adjust(x::TLPMDevice)
+    start_dark_adjust(x::TLPMDevice) -> Nothing
 
 This function starts the dark current/zero offset adjustment procedure.
 
@@ -398,7 +481,7 @@ function start_dark_adjust(x::TLPMDevice)
 end
 
 """
-    get_dark_adjust_state(x::TLPMDevice)
+    get_dark_adjust_state(x::TLPMDevice) -> Int16
 
 This function returns the state of a dark current/zero offset adjustment
 procedure previously initiated by <Start Dark Adjust>.
@@ -414,7 +497,7 @@ function get_dark_adjust_state(x::TLPMDevice)
 end
 
 """
-    cancel_dark_adjust(x::TLPMDevice)
+    cancel_dark_adjust(x::TLPMDevice) -> Nothing
 
 This function cancels a running dark current/zero offset adjustment procedure.
 """
