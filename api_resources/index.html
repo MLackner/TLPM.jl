@@ -75,7 +75,7 @@
 <pre><code class="language-julia">find_resources() -&gt; UInt32
 </code></pre>
 <p>This function finds all driver compatible devices attached to the PC and returns the number of found devices. The function additionally stores information like system name about the found resources internally. This information can be retrieved with further functions from the class, e.g. <code>get_resource_name</code> and <code>get_resource_info</code>.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L176-L184' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L176-L184' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_resource_name' href='#TLPM.get_resource_name'>#</a>
 <strong><code>TLPM.get_resource_name</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_resource_name(device_index::T) where T &lt;: Unsigned -&gt; String
@@ -88,7 +88,7 @@
 julia&gt; get_resource_name(0x00)
 &quot;USB0::0x1313::0x8072::1918020::INSTR&quot;
 </code></pre>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L191-L207' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L191-L207' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_resource_info' href='#TLPM.get_resource_info'>#</a>
 <strong><code>TLPM.get_resource_info</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_resource_info(device_index::T) where T &lt;: Unsigned
@@ -98,7 +98,7 @@ julia&gt; get_resource_name(0x00)
 <ul>
 <li>The data provided by this function was updated at the last call of <code>find_resources</code>.</li>
 </ul>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L214-L221' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L214-L221' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.TLPMDevice' href='#TLPM.TLPMDevice'>#</a>
 <strong><code>TLPM.TLPMDevice</code></strong> &mdash; <em>Type</em>.</p>
 <pre><code class="language-julia">TLPMDevice(resource_name::String) -&gt; TLPMDevice
@@ -112,7 +112,7 @@ julia&gt; get_resource_name(0x00)
 <ul>
 <li><code>TLPMDevice</code>: a <code>struct</code> representing the device</li>
 </ul>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L65-L77' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L65-L77' class='documenter-source'>source</a><br></p>
               
             </div>
           </div><footer>

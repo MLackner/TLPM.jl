@@ -87,13 +87,13 @@
 <li>You get the dark/zero value with <code>get_dark_offset</code></li>
 <li>Energy sensors do not support this function</li>
 </ul>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L467-L478' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L467-L478' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.cancel_dark_adjust' href='#TLPM.cancel_dark_adjust'>#</a>
 <strong><code>TLPM.cancel_dark_adjust</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">cancel_dark_adjust(x::TLPMDevice) -&gt; Nothing
 </code></pre>
 <p>This function cancels a running dark current/zero offset adjustment procedure.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L499-L503' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L499-L503' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_dark_adjust_state' href='#TLPM.get_dark_adjust_state'>#</a>
 <strong><code>TLPM.get_dark_adjust_state</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_dark_adjust_state(x::TLPMDevice) -&gt; Int16
@@ -106,37 +106,37 @@
 </ul>
 <pre><code>
 </code></pre>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L483-L492' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L483-L492' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_dark_offset' href='#TLPM.get_dark_offset'>#</a>
 <strong><code>TLPM.get_dark_offset</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_dark_offset(x::TLPMDevice)
 </code></pre>
 <p>This function returns the dark/zero offset. The unit of the returned offset value depends on the sensor type. Photodiodes return the dark offset in ampere [A]. Thermal sensors return the dark offset in volt [V]. The function is not supported with energy sensors.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L453-L460' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L453-L460' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_wavelength' href='#TLPM.get_wavelength'>#</a>
 <strong><code>TLPM.get_wavelength</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_wavelength(x::TLPMDevice) -&gt; Float64
 </code></pre>
 <p>This function returns the users wavelength in nanometer [nm]. The wavelength set value is used for calculating power.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L429-L434' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L429-L434' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_minimum_wavelength' href='#TLPM.get_minimum_wavelength'>#</a>
 <strong><code>TLPM.get_minimum_wavelength</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_minimum_wavelength(x::TLPMDevice) -&gt; Float64
 </code></pre>
 <p>This function returns the minimum wavelength in nanometer [nm] that can be set by the user. The wavelength set value is used for calculating power.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L437-L442' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L437-L442' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_maximum_wavelength' href='#TLPM.get_maximum_wavelength'>#</a>
 <strong><code>TLPM.get_maximum_wavelength</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_maximum_wavelength(x::TLPMDevice) -&gt; Float64
 </code></pre>
 <p>This function returns the maximum wavelength in nanometer [nm] that can be set by the user. The wavelength set value is used for calculating power.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L445-L450' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L445-L450' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.set_wavelength' href='#TLPM.set_wavelength'>#</a>
 <strong><code>TLPM.set_wavelength</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">set_wavelength(x::TLPMDevice, wavelength::Float64) -&gt; Nothing
 </code></pre>
 <p>This function sets the users wavelength in nanometer [nm]. The wavelength set value is used for calculating power.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L405-L410' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L405-L410' class='documenter-source'>source</a><br></p>
               
             </div>
           </div><footer>
