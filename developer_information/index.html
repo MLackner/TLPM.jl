@@ -74,6 +74,27 @@
 <p><a id='TLPM-Programming-Manual-1'></a></p>
 <h2 id="tlpm-programming-manual">TLPM Programming Manual</h2>
 <p>The TLPM programming manual comes with the <em>Thorlabs Optical Power Monitor</em> software and is typically located at <code>C:\Program Files (x86)\IVI Foundation\VISA\WinNT\TLPM\Manual</code>.</p>
+<p><a id='Deploying-the-Documentation'></a></p>
+<p><a id='Deploying-the-Documentation-1'></a></p>
+<h2 id="deploying-the-documentation">Deploying the Documentation</h2>
+<p>Since the package depends on the <em>Thorlabs Optical Power Monitor</em> being correctly installed on the system it is non-trivial to automate the build and deployment process. Therefore, you have to semi-manually build and deploy the documentation.</p>
+<p><a id='Prerequisites'></a></p>
+<p><a id='Prerequisites-1'></a></p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Install <a href="https://www.mkdocs.org">MkDocs</a> using <code>pip</code>:</p>
+<pre><code>$ pip install mkdocs
+...
+
+$ pip install python-markdown-math
+...
+</code></pre>
+<p><a id='Build-and-Deploy'></a></p>
+<p><a id='Build-and-Deploy-1'></a></p>
+<h3 id="build-and-deploy">Build and Deploy</h3>
+<p>From the project folder run:</p>
+<pre><code>$ julia --project=docs/ docs/make.jl
+</code></pre>
+<p>This will build the documentation and make a pull request to the <code>gh-pages</code> branch in the remote repository.</p>
               
             </div>
           </div><footer>
