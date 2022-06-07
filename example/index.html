@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Michael Lackner" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Example - TLPM.jl</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../assets/Documenter.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Example";
+        var mkdocs_page_input_path = "example.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> TLPM.jl
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">TLPM.jl</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Example</li>
+    <li class="wy-breadcrumbs-aside">
+        <a href="https://github.com/MLackner/TLPM.jl/edit/master/docs/example.md"
+          class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p><a id='Connect-and-Measure-Power-with-Average-Time'></a></p>
+<p><a id='Connect-and-Measure-Power-with-Average-Time-1'></a></p>
+<h2 id="connect-and-measure-power-with-average-time">Connect and Measure Power with Average Time</h2>
+<p>This example shows how to connect to a power meter, set the desired average time, a timeout compatible with that average time, retrieve the power measurement, and disconnect from the device.</p>
+<pre><code class="language-julia">julia&gt; using TLPM
+
+julia&gt; find_resources()
+0x00000001
+
+julia&gt; resource_index = 0x00
+0x00
+
+julia&gt; get_resource_info(resource_index)
+TLPM.ResourceInfo(&quot;PM100USB&quot;, &quot;1918020&quot;, &quot;Thorlabs&quot;, true)
+
+julia&gt; resource_name = get_resource_name(resource_index)
+&quot;USB0::0x1313::0x8072::1918020::INSTR&quot;
+
+julia&gt; dev = TLPMDevice(resource_name)
+TLPMDevice(0x00000000, &quot;USB0::0x1313::0x8072::1918020::INSTR&quot;)
+
+julia&gt; connect!(dev)
+TLPMDevice(0x000070b3, &quot;USB0::0x1313::0x8072::1918020::INSTR&quot;)
+
+julia&gt; set_timeout_value(dev, UInt32(5000)) # set timeout to 5000 ms
+
+julia&gt; set_avg_time(dev, 4.0) # configure average time for measurement to 4 s
+
+julia&gt; @time measure_power(dev)
+  4.002439 seconds (1 allocation: 16 bytes)
+1.47045821e-5
+
+julia&gt; disconnect(dev)
+
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/MLackner/TLPM.jl" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML" defer></script>
+      <script src="../assets/mathjaxhelper.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Michael Lackner" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Api utility functions - TLPM.jl</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../assets/Documenter.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Api utility functions";
+        var mkdocs_page_input_path = "api_utility_functions.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> TLPM.jl
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">TLPM.jl</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Api utility functions</li>
+    <li class="wy-breadcrumbs-aside">
+        <a href="https://github.com/MLackner/TLPM.jl/edit/master/docs/api_utility_functions.md"
+          class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p><a id='TLPM.get_calibration_message' href='#TLPM.get_calibration_message'>#</a>
+<strong><code>TLPM.get_calibration_message</code></strong> &mdash; <em>Function</em>.</p>
+<pre><code class="language-julia">get_calibration_message(x::TLPMDevice) -&gt; String
+</code></pre>
+<p>Returns a human readable calibration message.</p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L691-L695' class='documenter-source'>source</a><br></p>
+<p><a id='TLPM.get_sensor_info' href='#TLPM.get_sensor_info'>#</a>
+<strong><code>TLPM.get_sensor_info</code></strong> &mdash; <em>Function</em>.</p>
+<pre><code class="language-julia">get_sensor_info(x::TLPMDevice) -&gt; SensorInfo
+</code></pre>
+<p>This function is used to obtain informations from the connected sensor like sensor name, serial number, calibration message, sensor type, sensor subtype and sensor flags.</p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L702-L708' class='documenter-source'>source</a><br></p>
+<p><a id='TLPM.get_timeout_value' href='#TLPM.get_timeout_value'>#</a>
+<strong><code>TLPM.get_timeout_value</code></strong> &mdash; <em>Function</em>.</p>
+<pre><code class="language-julia">get_timeout_value(x::TLPMDevice) -&gt; UInt32
+</code></pre>
+<p>Returns the communication timeout value in ms.</p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L738-L742' class='documenter-source'>source</a><br></p>
+<p><a id='TLPM.set_timeout_value' href='#TLPM.set_timeout_value'>#</a>
+<strong><code>TLPM.set_timeout_value</code></strong> &mdash; <em>Function</em>.</p>
+<pre><code class="language-julia">set_timeout_value(x::TLPMDevice, timeout_value::UInt32) -&gt; Nothing
+</code></pre>
+<p>Set the communication timeout value in ms.</p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L749-L753' class='documenter-source'>source</a><br></p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/MLackner/TLPM.jl" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML" defer></script>
+      <script src="../assets/mathjaxhelper.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

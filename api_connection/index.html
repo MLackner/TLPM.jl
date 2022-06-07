@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Michael Lackner" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Api connection - TLPM.jl</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../assets/Documenter.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Api connection";
+        var mkdocs_page_input_path = "api_connection.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> TLPM.jl
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">TLPM.jl</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Api connection</li>
+    <li class="wy-breadcrumbs-aside">
+        <a href="https://github.com/MLackner/TLPM.jl/edit/master/docs/api_connection.md"
+          class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p><a id='TLPM.connect!' href='#TLPM.connect!'>#</a>
+<strong><code>TLPM.connect!</code></strong> &mdash; <em>Function</em>.</p>
+<pre><code class="language-julia">connect!(x::TLPMDevice; query=true, reset=true) -&gt; TLPMDevice
+</code></pre>
+<p>Make a connection to the <code>TLPMDevice</code> <code>x</code>.</p>
+<p><strong>Keyword Arguments</strong></p>
+<ul>
+<li><code>query=true</code>: This parameter specifies whether an identification query is performed during the initialization process.</li>
+<li><code>reset=true</code>: This parameter specifies whether the instrument is reset during the initialization process.</li>
+</ul>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L251-L261' class='documenter-source'>source</a><br></p>
+<p><a id='TLPM.disconnect' href='#TLPM.disconnect'>#</a>
+<strong><code>TLPM.disconnect</code></strong> &mdash; <em>Function</em>.</p>
+<pre><code class="language-julia">disconnect(x::TLPMDevice) -&gt; Nothing
+</code></pre>
+<p>Disconnect the <code>TLPMDevice</code>.</p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L305-L309' class='documenter-source'>source</a><br></p>
+<p><a id='Base.open' href='#Base.open'>#</a>
+<strong><code>Base.open</code></strong> &mdash; <em>Function</em>.</p>
+<pre><code class="language-julia">open(f::Function, x::TLPMDevice; query=true, reset=true) -&gt; Nothing
+</code></pre>
+<p>Opens a connection to the <code>TLPM</code> device, executes function <code>f</code> and finally disconnects from the device.</p>
+<p><strong>Keyword Arguments</strong></p>
+<ul>
+<li><code>query=true</code>: This parameter specifies whether an identification query is performed during the initialization process.</li>
+<li><code>reset=true</code>: This parameter specifies whether the instrument is reset during the initialization process.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code>julia&gt; find_resources()
+
+julia&gt; resource_name = get_resource_name(0x00)
+&quot;USB0::0x1313::0x8072::1918020::INSTR&quot;
+
+julia&gt; dev = TLPMDevice(resource_name)
+TLPMDevice(0x00000000, &quot;USB0::0x1313::0x8072::1918020::INSTR&quot;)
+
+julia&gt; open(dev) do x
+           measure_power(x) |&gt; println
+       end
+4.54033199e-7
+</code></pre>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/5b65c2e4c1b9beb22f919d85216216efbc9d4a26/src/TLPM.jl#L267-L293' class='documenter-source'>source</a><br></p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/MLackner/TLPM.jl" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML" defer></script>
+      <script src="../assets/mathjaxhelper.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
