@@ -21,7 +21,7 @@ makedocs(
             "Utility Funcitons" => "api_utility_functions.md",
             "User Power Calibration" => "api_user_power_calibration.md",
         ],
-        "Developer Information" => "developer_information.md"
+        "Developer Information" => "developer_information.md",
     ]
 )
 

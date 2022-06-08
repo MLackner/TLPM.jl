@@ -1,3 +1,5 @@
+## Resources
+
 ```@docs
 find_resources
 get_resource_name

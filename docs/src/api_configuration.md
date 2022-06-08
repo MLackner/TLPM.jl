@@ -1,4 +1,6 @@
-## Average
+## Configuration
+
+### Average
 
 These functions handle the measurement averaging of the instrument.
 
@@ -11,7 +13,7 @@ set_avg_time
 ```
 
 
-## Power Measurement
+### Power Measurement
 
 These functions handle the power measurement of the instrument.
 

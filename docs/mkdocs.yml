@@ -3,7 +3,13 @@ repo_url:         https://github.com/MLackner/TLPM.jl
 site_description: Documentation for the TLPM.jl Julia package
 site_author:      Michael Lackner
 
-theme: readthedocs
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages: 
+    - julia
+  hljs_style: 'Atom One Dark'
+  navigation_depth: 2
 
 extra_css:
   - assets/Documenter.css
@@ -22,3 +28,17 @@ docs_dir: 'build'
 
 nav:
   - Home: index.md
+  - Installation: installation.md
+  - Examples:
+    - Average Measurement: example.md
+  - API Reference:
+    - Index: api_index.md
+    - Resources: api_resources.md
+    - Connection: api_connection.md
+    - Configuration: api_configuration.md
+    - Power Measurement: api_power_measurement.md
+    - Correction: api_correction.md
+    - Utility Functions: api_utility_functions.md
+    - User Power Calibration: api_user_power_calibration.md
+  - Other:
+    - Developer Information: developer_information.md

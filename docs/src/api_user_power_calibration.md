@@ -1,3 +1,5 @@
+## User Power Calibration
+
 These functions handle user power calibration of the instrument.
 
 ```@docs

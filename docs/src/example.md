@@ -1,4 +1,6 @@
-## Connect and Measure Power with Average Time
+# Examples
+
+## Average Measurement
 
 This example shows how to connect to a power meter, set the desired average time, a timeout compatible with that average time, retrieve the power measurement, and disconnect from the device.
 

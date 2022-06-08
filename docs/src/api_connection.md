@@ -1,3 +1,5 @@
+## Connection
+
 ```@docs
 connect!
 disconnect
