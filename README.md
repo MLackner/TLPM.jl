@@ -1,5 +1,7 @@
 # TLPM.jl
 
+[![Main](https://img.shields.io/badge/docs-main-blue.svg)](https://mlackner.github.io/TLPM.jl/)
+
 Julia bindings to the *Thorlabs* `TLPM.dll` library.
 
 ## Prerequsites
