@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Michael Lackner" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Api user power calibration - TLPM.jl</title>
+    <title>User Power Calibration - TLPM.jl</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Api user power calibration";
+        var mkdocs_page_name = "User Power Calibration";
         var mkdocs_page_input_path = "api_user_power_calibration.md";
         var mkdocs_page_url = null;
       </script>
@@ -23,6 +23,7 @@
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/julia.min.js"></script>
       <script>hljs.initHighlightingOnLoad();</script> 
 </head>
 
@@ -45,6 +46,41 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../example/">Average Measurement</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../api_index/">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_resources/">Resources</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_connection/">Connection</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_configuration/">Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_power_measurement/">Power Measurement</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_correction/">Correction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_utility_functions/">Utility Functions</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">User Power Calibration</a>
+    <ul class="current">
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../developer_information/">Developer Information</a>
+                  </li>
+              </ul>
       </div>
     </div>
     </nav>
@@ -58,7 +94,8 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Api user power calibration</li>
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>API Reference &raquo;</li><li>User Power Calibration</li>
     <li class="wy-breadcrumbs-aside">
         <a href="https://github.com/MLackner/TLPM.jl/edit/master/docs/api_user_power_calibration.md"
           class="icon icon-github"> Edit on GitHub</a>
@@ -70,14 +107,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>These functions handle user power calibration of the instrument.</p>
+                <p><a id='User-Power-Calibration'></a></p>
+<p><a id='User-Power-Calibration-1'></a></p>
+<h2 id="user-power-calibration">User Power Calibration</h2>
+<p>These functions handle user power calibration of the instrument.</p>
 <p><a id='TLPM.reinit_sensor' href='#TLPM.reinit_sensor'>#</a>
 <strong><code>TLPM.reinit_sensor</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">reinit_sensor(x::TLPMDevice) -&gt; Nothing
 </code></pre>
 <p>To use the user power calibration, the sensor has to be reconnected. Either manually remove and reconnect the sensor to the instrument or use this function. This function will wait 2 seconds until the sensor has been reinitialized.</p>
 <p>The following power meters support this function: PM400, PM101x, PM102x, PM103x.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L762-L770' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L762-L770' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_power_calibration_points' href='#TLPM.get_power_calibration_points'>#</a>
 <strong><code>TLPM.get_power_calibration_points</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_power_calibration_points(x::TLPMDevice, index::UInt16) -&gt; PowerCalibrationPoints
@@ -90,7 +130,7 @@
 </ul>
 <pre><code>
 </code></pre>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L775-L785' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L775-L785' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_power_calibration_points_information' href='#TLPM.get_power_calibration_points_information'>#</a>
 <strong><code>TLPM.get_power_calibration_points_information</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_power_calibration_points_information(x::TLPMDevice, index::UInt16) -&gt; PowerCalibrationInformation
@@ -103,10 +143,14 @@
 </ul>
 <pre><code>
 </code></pre>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L793-L804' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L793-L804' class='documenter-source'>source</a><br></p>
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../api_utility_functions/" class="btn btn-neutral float-left" title="Utility Functions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../developer_information/" class="btn btn-neutral float-right" title="Developer Information">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -132,6 +176,10 @@
         </span>
     
     
+      <span><a href="../api_utility_functions/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../developer_information/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

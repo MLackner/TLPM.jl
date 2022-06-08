@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Michael Lackner" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Api utility functions - TLPM.jl</title>
+    <title>Utility Functions - TLPM.jl</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Api utility functions";
+        var mkdocs_page_name = "Utility Functions";
         var mkdocs_page_input_path = "api_utility_functions.md";
         var mkdocs_page_url = null;
       </script>
@@ -23,6 +23,7 @@
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/julia.min.js"></script>
       <script>hljs.initHighlightingOnLoad();</script> 
 </head>
 
@@ -45,6 +46,41 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../example/">Average Measurement</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../api_index/">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_resources/">Resources</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_connection/">Connection</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_configuration/">Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_power_measurement/">Power Measurement</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_correction/">Correction</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Utility Functions</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_user_power_calibration/">User Power Calibration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../developer_information/">Developer Information</a>
+                  </li>
+              </ul>
       </div>
     </div>
     </nav>
@@ -58,7 +94,8 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Api utility functions</li>
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>API Reference &raquo;</li><li>Utility Functions</li>
     <li class="wy-breadcrumbs-aside">
         <a href="https://github.com/MLackner/TLPM.jl/edit/master/docs/api_utility_functions.md"
           class="icon icon-github"> Edit on GitHub</a>
@@ -70,33 +107,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p><a id='TLPM.get_calibration_message' href='#TLPM.get_calibration_message'>#</a>
+                <p><a id='Utility-Functions'></a></p>
+<p><a id='Utility-Functions-1'></a></p>
+<h2 id="utility-functions">Utility Functions</h2>
+<p><a id='TLPM.get_calibration_message' href='#TLPM.get_calibration_message'>#</a>
 <strong><code>TLPM.get_calibration_message</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_calibration_message(x::TLPMDevice) -&gt; String
 </code></pre>
 <p>Returns a human readable calibration message.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L691-L695' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L691-L695' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_sensor_info' href='#TLPM.get_sensor_info'>#</a>
 <strong><code>TLPM.get_sensor_info</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_sensor_info(x::TLPMDevice) -&gt; SensorInfo
 </code></pre>
 <p>This function is used to obtain informations from the connected sensor like sensor name, serial number, calibration message, sensor type, sensor subtype and sensor flags.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L702-L708' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L702-L708' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_timeout_value' href='#TLPM.get_timeout_value'>#</a>
 <strong><code>TLPM.get_timeout_value</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_timeout_value(x::TLPMDevice) -&gt; UInt32
 </code></pre>
 <p>Returns the communication timeout value in ms.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L738-L742' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L738-L742' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.set_timeout_value' href='#TLPM.set_timeout_value'>#</a>
 <strong><code>TLPM.set_timeout_value</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">set_timeout_value(x::TLPMDevice, timeout_value::UInt32) -&gt; Nothing
 </code></pre>
 <p>Set the communication timeout value in ms.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L749-L753' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L749-L753' class='documenter-source'>source</a><br></p>
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../api_correction/" class="btn btn-neutral float-left" title="Correction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../api_user_power_calibration/" class="btn btn-neutral float-right" title="User Power Calibration">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -122,6 +166,10 @@
         </span>
     
     
+      <span><a href="../api_correction/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../api_user_power_calibration/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

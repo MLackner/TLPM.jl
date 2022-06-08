@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Michael Lackner" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Api connection - TLPM.jl</title>
+    <title>Connection - TLPM.jl</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Api connection";
+        var mkdocs_page_name = "Connection";
         var mkdocs_page_input_path = "api_connection.md";
         var mkdocs_page_url = null;
       </script>
@@ -23,6 +23,7 @@
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/julia.min.js"></script>
       <script>hljs.initHighlightingOnLoad();</script> 
 </head>
 
@@ -45,6 +46,41 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../example/">Average Measurement</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../api_index/">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_resources/">Resources</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Connection</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_configuration/">Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_power_measurement/">Power Measurement</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_correction/">Correction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_utility_functions/">Utility Functions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_user_power_calibration/">User Power Calibration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../developer_information/">Developer Information</a>
+                  </li>
+              </ul>
       </div>
     </div>
     </nav>
@@ -58,7 +94,8 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Api connection</li>
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>API Reference &raquo;</li><li>Connection</li>
     <li class="wy-breadcrumbs-aside">
         <a href="https://github.com/MLackner/TLPM.jl/edit/master/docs/api_connection.md"
           class="icon icon-github"> Edit on GitHub</a>
@@ -70,7 +107,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p><a id='TLPM.connect!' href='#TLPM.connect!'>#</a>
+                <p><a id='Connection'></a></p>
+<p><a id='Connection-1'></a></p>
+<h2 id="connection">Connection</h2>
+<p><a id='TLPM.connect!' href='#TLPM.connect!'>#</a>
 <strong><code>TLPM.connect!</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">connect!(x::TLPMDevice; query=true, reset=true) -&gt; TLPMDevice
 </code></pre>
@@ -80,13 +120,13 @@
 <li><code>query=true</code>: This parameter specifies whether an identification query is performed during the initialization process.</li>
 <li><code>reset=true</code>: This parameter specifies whether the instrument is reset during the initialization process.</li>
 </ul>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L251-L261' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L251-L261' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.disconnect' href='#TLPM.disconnect'>#</a>
 <strong><code>TLPM.disconnect</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">disconnect(x::TLPMDevice) -&gt; Nothing
 </code></pre>
 <p>Disconnect the <code>TLPMDevice</code>.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L305-L309' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L305-L309' class='documenter-source'>source</a><br></p>
 <p><a id='Base.open' href='#Base.open'>#</a>
 <strong><code>Base.open</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">open(f::Function, x::TLPMDevice; query=true, reset=true) -&gt; Nothing
@@ -111,10 +151,14 @@ julia&gt; open(dev) do x
        end
 4.54033199e-7
 </code></pre>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L267-L293' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L267-L293' class='documenter-source'>source</a><br></p>
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../api_resources/" class="btn btn-neutral float-left" title="Resources"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../api_configuration/" class="btn btn-neutral float-right" title="Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -140,6 +184,10 @@ julia&gt; open(dev) do x
         </span>
     
     
+      <span><a href="../api_resources/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../api_configuration/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

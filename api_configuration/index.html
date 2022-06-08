@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Michael Lackner" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Api configuration - TLPM.jl</title>
+    <title>Configuration - TLPM.jl</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Api configuration";
+        var mkdocs_page_name = "Configuration";
         var mkdocs_page_input_path = "api_configuration.md";
         var mkdocs_page_url = null;
       </script>
@@ -23,6 +23,7 @@
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/julia.min.js"></script>
       <script>hljs.initHighlightingOnLoad();</script> 
 </head>
 
@@ -45,6 +46,45 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../example/">Average Measurement</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../api_index/">Index</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_resources/">Resources</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_connection/">Connection</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Configuration</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#average">Average</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#power-measurement">Power Measurement</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_power_measurement/">Power Measurement</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_correction/">Correction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_utility_functions/">Utility Functions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_user_power_calibration/">User Power Calibration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../developer_information/">Developer Information</a>
+                  </li>
+              </ul>
       </div>
     </div>
     </nav>
@@ -58,7 +98,8 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Api configuration</li>
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>API Reference &raquo;</li><li>Configuration</li>
     <li class="wy-breadcrumbs-aside">
         <a href="https://github.com/MLackner/TLPM.jl/edit/master/docs/api_configuration.md"
           class="icon icon-github"> Edit on GitHub</a>
@@ -70,78 +111,81 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p><a id='Average'></a></p>
+                <p><a id='Configuration'></a></p>
+<p><a id='Configuration-1'></a></p>
+<h2 id="configuration">Configuration</h2>
+<p><a id='Average'></a></p>
 <p><a id='Average-1'></a></p>
-<h2 id="average">Average</h2>
+<h3 id="average">Average</h3>
 <p>These functions handle the measurement averaging of the instrument.</p>
 <p><a id='TLPM.get_avg_time' href='#TLPM.get_avg_time'>#</a>
 <strong><code>TLPM.get_avg_time</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_avg_time(x::TLPMDevice) -&gt; Float64
 </code></pre>
 <p>Return the average time for measurement value generation.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L369-L373' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L369-L373' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_minimum_avg_time' href='#TLPM.get_minimum_avg_time'>#</a>
 <strong><code>TLPM.get_minimum_avg_time</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_minimum_avg_time(x::TLPMDevice) -&gt; Float64
 </code></pre>
 <p>Return the minimum average time for measurement value generation that can be set.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L376-L380' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L376-L380' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_maximum_avg_time' href='#TLPM.get_maximum_avg_time'>#</a>
 <strong><code>TLPM.get_maximum_avg_time</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_maximum_avg_time(x::TLPMDevice) -&gt; Float64
 </code></pre>
 <p>Return the maximum average time for measurement value generation that can be set.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L383-L387' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L383-L387' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_default_avg_time' href='#TLPM.get_default_avg_time'>#</a>
 <strong><code>TLPM.get_default_avg_time</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_default_avg_time(x::TLPMDevice) -&gt; Float64
 </code></pre>
 <p>Return the default average time for measurement value generation that can be set.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L390-L394' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L390-L394' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.set_avg_time' href='#TLPM.set_avg_time'>#</a>
 <strong><code>TLPM.set_avg_time</code></strong> &mdash; <em>Function</em>.</p>
 <p>Sets the average time for measurement value generation.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L339-L341' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L339-L341' class='documenter-source'>source</a><br></p>
 <p><a id='Power-Measurement'></a></p>
 <p><a id='Power-Measurement-1'></a></p>
-<h2 id="power-measurement">Power Measurement</h2>
+<h3 id="power-measurement">Power Measurement</h3>
 <p>These functions handle the power measurement of the instrument.</p>
 <p><a id='TLPM.get_power_auto_range' href='#TLPM.get_power_auto_range'>#</a>
 <strong><code>TLPM.get_power_auto_range</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_power_auto_range(x::TLPMDevice) -&gt; Bool
 </code></pre>
 <p>Returns the power auto range mode. <code>false</code> means autorange is off, <code>true</code> means auto range is on.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L578-L583' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L578-L583' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.set_power_auto_range' href='#TLPM.set_power_auto_range'>#</a>
 <strong><code>TLPM.set_power_auto_range</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">set_power_auto_range(x::TLPMDevice, autorange::Bool) -&gt; Nothing
 </code></pre>
 <p>Sets the power auto range mode. <code>false</code> means auto range is off, <code>true</code> means auto range is on.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L590-L595' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L590-L595' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_power_range' href='#TLPM.get_power_range'>#</a>
 <strong><code>TLPM.get_power_range</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_power_range(x::TLPMDevice) -&gt; Float64
 </code></pre>
 <p>Returns the power range value in watt [W].</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L519-L523' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L519-L523' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_minimum_power_range' href='#TLPM.get_minimum_power_range'>#</a>
 <strong><code>TLPM.get_minimum_power_range</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_minimum_power_range(x::TLPMDevice) -&gt; Float64
 </code></pre>
 <p>Returns the minimum power range value in watt [W].</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L528-L532' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L528-L532' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_maximum_power_range' href='#TLPM.get_maximum_power_range'>#</a>
 <strong><code>TLPM.get_maximum_power_range</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_maximum_power_range(x::TLPMDevice) -&gt; Float64
 </code></pre>
 <p>Returns the maximum power range value in watt [W].</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L537-L541' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L537-L541' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.set_power_range' href='#TLPM.set_power_range'>#</a>
 <strong><code>TLPM.set_power_range</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">set_power_range(x::TLPMDevice, power_to_measure::Float64) -&gt; Nothing
 </code></pre>
 <p>Sets the sensor's power range. <code>power_to_measure</code> specifies the most positive signal level expected for the sensor input in watt [W].</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L546-L551' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L546-L551' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_power_ref' href='#TLPM.get_power_ref'>#</a>
 <strong><code>TLPM.get_power_ref</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_power_ref(x::TLPMDevice) -&gt; Float64
@@ -153,7 +197,7 @@
 <li>This value is used for calculating differences between the actual power value</li>
 </ul>
 <p>and this power reference value if Power Reference State is ON.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L617-L626' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L617-L626' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_minimum_power_ref' href='#TLPM.get_minimum_power_ref'>#</a>
 <strong><code>TLPM.get_minimum_power_ref</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_minimum_power_ref(x::TLPMDevice) -&gt; Float64
@@ -165,7 +209,7 @@
 <li>This value is used for calculating differences between the actual power value</li>
 </ul>
 <p>and this power reference value if Power Reference State is ON.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L631-L640' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L631-L640' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_maximum_power_ref' href='#TLPM.get_maximum_power_ref'>#</a>
 <strong><code>TLPM.get_maximum_power_ref</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_maximum_power_ref(x::TLPMDevice) -&gt; Float64
@@ -177,7 +221,7 @@
 <li>This value is used for calculating differences between the actual power value</li>
 </ul>
 <p>and this power reference value if Power Reference State is ON.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L645-L654' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L645-L654' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_default_power_ref' href='#TLPM.get_default_power_ref'>#</a>
 <strong><code>TLPM.get_default_power_ref</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_default_power_ref(x::TLPMDevice) -&gt; Float64
@@ -189,7 +233,7 @@
 <li>This value is used for calculating differences between the actual power value</li>
 </ul>
 <p>and this power reference value if Power Reference State is ON.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L659-L668' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L659-L668' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.set_power_ref' href='#TLPM.set_power_ref'>#</a>
 <strong><code>TLPM.set_power_ref</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">set_power_ref(x::TLPMDevice, power_reference_value::Float64) -&gt; Nothing
@@ -201,22 +245,26 @@
 <li>This value is used for calculating differences between the actual power value</li>
 </ul>
 <p>and this power reference value if Power Reference State is ON.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L673-L682' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L673-L682' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.get_power_unit' href='#TLPM.get_power_unit'>#</a>
 <strong><code>TLPM.get_power_unit</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">get_power_unit(x::TLPMDevice) -&gt; PowerUnit
 </code></pre>
 <p>This function returns the unit of the power value. Can be either the type <code>TLPM.Watt</code> or <code>TLPM.dBm</code>.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L556-L561' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L556-L561' class='documenter-source'>source</a><br></p>
 <p><a id='TLPM.set_power_unit' href='#TLPM.set_power_unit'>#</a>
 <strong><code>TLPM.set_power_unit</code></strong> &mdash; <em>Function</em>.</p>
 <pre><code class="language-julia">set_power_unit(x::TLPMDevice, power_unit::PowerUnit) -&gt; Nothing
 </code></pre>
 <p>Set the unit of the power value. <code>power_unit</code> can be either <code>TLPM.Watt</code> or <code>TLPM.dBm</code>.</p>
-<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/59a85a695577f130d07710f7d983d7ac9b4be9d0/src/TLPM.jl#L568-L573' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MLackner/TLPM.jl/blob/70deb09dd568d520416a621c5d6e2fe8b9e39860/src/TLPM.jl#L568-L573' class='documenter-source'>source</a><br></p>
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../api_connection/" class="btn btn-neutral float-left" title="Connection"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../api_power_measurement/" class="btn btn-neutral float-right" title="Power Measurement">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -242,6 +290,10 @@
         </span>
     
     
+      <span><a href="../api_connection/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../api_power_measurement/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
